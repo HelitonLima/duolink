@@ -1,0 +1,53 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+    <div class="content" fxLayout="column" fxLayoutGap="25px" [formGroup]="form">
+        <span class="title">
+            CADASTRO
+        </span>
+
+        <mat-divider></mat-divider>
+
+        <div class="inputs" fxLayout="column">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Digite seu nome aqui..." type="text" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Digite seu email aqui..." type="email" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Nickname</mat-label>
+                <input matInput placeholder="Digite seu nome em jogo aqui..." type="text" formControlName="nickname">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput placeholder="Digite sua senha aqui..." type="password" formControlName="password">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Roles que você joga</mat-label>
+                <mat-select multiple formControlName="playRole">
+                    <mat-option *ngFor="let role of playRoles" [value]="role.value">
+                        {{role.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Roles que você procura</mat-label>
+                <mat-select multiple formControlName="roleSearch" [disabled]="form.value.playRole.length == 0">
+                    <mat-option *ngFor="let role of searchRoles" [value]="role.value">
+                        {{role.value}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <button mat-flat-button class="submit-button" (click)="submit()">Enviar</button>
+    </div>
+</div>

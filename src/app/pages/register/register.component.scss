@@ -1,0 +1,60 @@
+@use "../../../assets/colors" as color;
+
+.container {
+    background-color: color.$darkcyan;
+    height: 100%;
+    color: color.$white;
+}
+
+.content {
+    background-color: color.$lightcyan;
+    padding: 30px 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 90%;
+    max-width: 540px;
+    border-radius: 8px;
+}
+
+.inputs {
+    padding: 0 30px;
+}
+
+.title {
+    text-align: center;
+}
+
+.submit-button {
+    margin: auto;
+}
+
+:host ::ng-deep .mat-input-element::placeholder {
+    color: color.$white;
+}
+
+:host ::ng-deep .mat-focused .mat-input-element::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+:host ::ng-deep .mat-divider {
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+:host ::ng-deep .mat-select-panel {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+}
+
+:host ::ng-deep .mat-form-field-label,
+:host ::ng-deep .mat-select-arrow,
+:host ::ng-deep .mat-select-value {
+    color: color.$white !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before,
+:host ::ng-deep .mat-form-field-ripple {
+    background-color: rgba(255, 255, 255, 0.42);
+}

@@ -1,4 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use './assets/colors' as color;
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.subtitle {
+    font-size: 18px;
+}
+
+.submit-button {
+    border-radius: 20px !important;   
+    background-color: color.$darkred;
+    font-size: 16px;
+    width: 150px;
+    color: color.$white;
+}
