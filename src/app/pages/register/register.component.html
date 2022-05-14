@@ -1,5 +1,5 @@
-<div class="container" fxLayout="column" fxLayoutAlign="center center">
-    <div class="content" fxLayout="column" fxLayoutGap="25px" [formGroup]="form">
+<div class="auth container" fxLayout="column" fxLayoutAlign="center center">
+    <div class="auth content" fxLayout="column" fxLayoutGap="25px" [formGroup]="form">
         <span class="title">
             CADASTRO
         </span>
@@ -49,5 +49,7 @@
         <mat-divider></mat-divider>
 
         <button mat-flat-button class="submit-button" (click)="submit()">Enviar</button>
+
+        <span class="note" [routerLink]="['/login']">Já possui uma conta? Clique aqui para fazer login</span>
     </div>
 </div>

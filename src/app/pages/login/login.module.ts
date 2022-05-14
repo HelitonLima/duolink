@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegisterRoutingModule } from './register-routing.module';
-import { RegisterComponent } from './register.component';
+import { LoginRoutingModule } from './login-routing.module';
+import { LoginComponent } from './login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/assets/material.module';
+import { MaterialModule } from '../../../assets/material.module';
 
 
 @NgModule({
   declarations: [
-    RegisterComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,
-    RegisterRoutingModule,
+    LoginRoutingModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule
   ]
 })
-export class RegisterModule { }
+export class LoginModule { }

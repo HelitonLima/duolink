@@ -1,0 +1,7 @@
+@use '../../../../assets/colors' as color;
+
+nav {
+    padding: 20px;
+    background-color: color.$darkred;
+    color: color.$white;
+}

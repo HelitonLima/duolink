@@ -33,3 +33,52 @@ body {
     width: 150px;
     color: color.$white;
 }
+
+.note {
+    font-size: 12px;
+    opacity: 0.5;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 20px;
+    cursor: pointer;
+    right: 20px;
+}
+
+.container {
+    background-color: color.$darkcyan;
+    height: calc(100% + 80px);
+    color: color.$white;
+}
+
+.auth.content {
+    background-color: color.$lightcyan;
+    padding: 30px 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 90%;
+    max-width: 540px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.roles {
+    background-color: color.$lightcyan;
+    padding: 30px 40px;
+    width: 90%;
+    max-width: 1280px;
+}
+
+.role {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+    transition: all .5s;
+
+    img {
+        width: 65px;
+    }
+}
+
+.role:hover {
+    opacity: 0.8;
+}

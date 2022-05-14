@@ -1,0 +1,27 @@
+<div class="auth container" fxLayout="column" fxLayoutAlign="center center">
+    <div class="auth content" fxLayout="column" fxLayoutGap="25px" [formGroup]="form">
+        <span class="title">
+            LOGIN
+        </span>
+
+        <mat-divider></mat-divider>
+
+        <div class="inputs" fxLayout="column">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Digite seu email aqui..." type="email" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput placeholder="Digite sua senha aqui..." type="password" formControlName="password">
+            </mat-form-field>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <button mat-flat-button class="submit-button" (click)="submit()">Enviar</button>
+
+        <span class="note" [routerLink]="['/register']">Não possui uma conta? Clique aqui para fazer seu cadastro</span>
+    </div>
+</div>
