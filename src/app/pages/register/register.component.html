@@ -29,7 +29,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Roles que você joga</mat-label>
-                <mat-select multiple formControlName="playRole">
+                <mat-select multiple formControlName="playRole" (ngModelChange)="setSearchRole()">
                     <mat-option *ngFor="let role of playRoles" [value]="role.value">
                         {{role.value}}
                     </mat-option>
@@ -38,7 +38,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Roles que você procura</mat-label>
-                <mat-select multiple formControlName="roleSearch" [disabled]="form.value.playRole.length == 0">
+                <mat-select multiple formControlName="searchRole">
                     <mat-option *ngFor="let role of searchRoles" [value]="role.value">
                         {{role.value}}
                     </mat-option>
@@ -48,7 +48,16 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-flat-button class="submit-button" (click)="submit()">Enviar</button>
+        <button 
+            mat-flat-button 
+            class="submit-button" 
+            (click)="submit()"
+            [disabled]="loading">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"> 
+                <span>Enviar</span> <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+            </div>
+            
+        </button>
 
         <span class="note" [routerLink]="['/login']">Já possui uma conta? Clique aqui para fazer login</span>
     </div>
