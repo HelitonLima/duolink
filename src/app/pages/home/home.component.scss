@@ -1,3 +1,5 @@
+@use "../../../assets/_colors.scss" as color;
+
 .container {
     padding: 30px 0;
 }
@@ -13,6 +15,22 @@
 .win-lose {
     font-size: 16px;
     font-weight: bold;
+}
+
+.close {
+    cursor: pointer; 
+    color: color.$lightred;
+}
+
+.invite-button {
+    color: color.$white;
+    background-color: #4b703e;
+    font-size: 16px;
+}
+
+.not-found {
+    color: color.$white;
+    opacity: 0.6;
 }
 
 @media (max-width: 960px) {

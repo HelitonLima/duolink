@@ -25,6 +25,10 @@ export class UserService {
     return this.http.post<{user: userInterface}>(this.apiUrl + '/login', body);
   }
 
+  getUsers(user: userInterface) {
+    return this.http.post<userInterface[]>(this.apiUrl + '/duo', user);
+  }
+
   logout() {
     localStorage.removeItem(this.userKey);
     this.router.navigateByUrl('login');

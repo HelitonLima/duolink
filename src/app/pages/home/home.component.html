@@ -1,4 +1,4 @@
-<div class="container" fxLayout="column" fxLayoutAlign="center center">
+<div class="container" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="50px">
 
     <div class="roles" fxLayout="column" fxLayoutGap="20px">
 
@@ -61,5 +61,46 @@
         </div>
     </div>
     
+    <span style="font-size: 24px; text-align: start; width: 90%; max-width: 1280px;">Recomendações</span>
 
+    <div class="roles" fxLayout="row wrap" fxLayoutAlign="space-around start">
+
+        <span class="not-found" *ngIf="users.length == 0">Sem usuários encontrados, aguarde alguém fazer login...</span>
+
+        <div 
+            class="card" 
+            fxLayout="column" 
+            fxLayoutGap="20px" 
+            fxFlex="30"
+            *ngFor="let user of users">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <span [innerText]="user.nickname" style="font-size: 18px"></span>
+
+                <mat-icon class="mat-18" class="close" (click)="removeUser(user)">close</mat-icon>
+            </div>
+            
+
+            <div fxLayout="row" fxLayoutAlign="space-between end">
+                <div fxLayout="row wrap" fxLayoutGap="20px">
+                    <div 
+                    class="role" 
+                    fxLayout="column" 
+                    fxLayoutAlign="center center"
+                    *ngFor="let role of user.playRole">
+                        <img [src]="'./assets/ICONS/' + role + '.png'" alt="">
+                    </div>
+                </div>
+
+                <img 
+                [src]="user.soloqData ? './assets/ICONS/Emblem_' + user.soloqData.tier + '.png' : ''" 
+                alt="" 
+                style="width: 100px;">
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end start">
+                <button mat-flat-button class="invite-button" (click)="removeUser(user)">Convidar</button>
+            </div>
+            
+        </div>
+    </div>
 </div>

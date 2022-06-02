@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  
   public form: FormGroup = this.formBuilder.group({
     email: [
       null,
@@ -45,16 +46,15 @@ export class LoginComponent implements OnInit {
 
       this.loading = true;
       this.userService.login(user).subscribe((res: { user: userInterface }) => {
-        console.log(user)
         this.userService.setLocalStorage(res.user);
         this.router.navigateByUrl('');
         this.setLoadingFalse();
       },
         err => {
-          console.error(err);
+          console.error(err.error.message);
 
-          if (err.message)
-            this.alert.error(err.message)
+          if (err.error.message)
+            this.alert.error(err.error.message)
 
           this.setLoadingFalse();
         })
