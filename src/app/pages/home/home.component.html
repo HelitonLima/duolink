@@ -1,41 +1,65 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
 
-    <div class="roles" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="0" fxLayoutGap.lt-md="20px">
-        <div class="play-roles" fxFlex="50" fxLayout="column" fxLayoutGap="30px">
-            <span class="subtitle">Suas funções escolhidas: </span>
+    <div class="roles" fxLayout="column" fxLayoutGap="20px">
 
-            <div fxLayout="row" fxLayoutGap="30px"  class="container-roles">
-                <div class="role" fxLayout="column" fxLayoutAlign="center center">
-                    <img src="./assets/ICONS/top.png" alt="">
-                </div>
-    
-                <div class="role" fxLayout="column" fxLayoutAlign="center center">
-                    <img src="./assets/ICONS/top.png" alt="">
-                </div>
-    
-                <div class="role" fxLayout="column" fxLayoutAlign="center center">
-                    <img src="./assets/ICONS/top.png" alt="">
-                </div>
+        <div class="tier" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+            <img 
+                [src]="loggedUser.soloqData ? './assets/ICONS/Emblem_' + loggedUser.soloqData.tier + '.png' : ''" 
+                alt="" 
+                style="width: 80px;">
+            
+            <div fxLayout="column" fxLayoutGap="10px">
+                <span *ngIf="loggedUser.soloqData" class="tier-rank">
+                    {{loggedUser.soloqData.tier + ' ' + loggedUser.soloqData.rank}}
+                </span>
+
+                <span *ngIf="loggedUser.soloqData" class="win-lose">
+                    <span [innerText]="loggedUser.soloqData.wins + ' W'" style="color: #85d985;"></span>
+                    /
+                    <span [innerText]="loggedUser.soloqData.losses + ' L'" style="color: #c75858;"></span>
+                </span>
             </div>
         </div>
 
-        <div class="search-roles" fxFlex="50" fxLayout="column" fxLayoutGap="30px">
-            <span class="subtitle">Funções que está procurando: </span>
+        <mat-divider></mat-divider>
 
-            <div fxLayout="row" fxLayoutGap="30px" class="container-roles">
-                <div class="role" fxLayout="column" fxLayoutAlign="center center">
-                    <img src="./assets/ICONS/top.png" alt="">
-                </div>
+        <div 
+            style="width: 100%;"
+            fxLayout="row" 
+            fxLayout.lt-lg="column" 
+            fxLayoutAlign="center center" 
+            fxLayoutAlign.lt-lg="start start" 
+            fxLayoutGap="0" 
+            fxLayoutGap.lt-lg="30px">
+            <div class="play-roles" fxFlex="50" fxLayout="column" fxLayoutGap="30px">
+                <span class="subtitle">Suas funções escolhidas: </span>
     
-                <div class="role" fxLayout="column" fxLayoutAlign="center center">
-                    <img src="./assets/ICONS/top.png" alt="">
+                <div fxLayout="row" fxLayoutGap="30px"  class="container-roles">
+                    <div 
+                    class="role" 
+                    fxLayout="column" 
+                    fxLayoutAlign="center center"
+                    *ngFor="let role of loggedUser.playRole">
+                        <img [src]="'./assets/ICONS/' + role + '.png'" alt="">
+                    </div>
                 </div>
+            </div>
     
-                <div class="role" fxLayout="column" fxLayoutAlign="center center">
-                    <img src="./assets/ICONS/top.png" alt="">
+            <div class="search-roles" fxFlex="50" fxLayout="column" fxLayoutGap="30px">
+                <span class="subtitle">Funções que está procurando: </span>
+    
+                <div fxLayout="row" fxLayoutGap="30px" class="container-roles">
+                    <div 
+                    class="role" 
+                    fxLayout="column" 
+                    fxLayoutAlign="center center"
+                    *ngFor="let role of loggedUser.searchRole">
+                        <img [src]="'./assets/ICONS/' + role + '.png'" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
 </div>

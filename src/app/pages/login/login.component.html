@@ -20,7 +20,15 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-flat-button class="submit-button" (click)="submit()">Enviar</button>
+        <button 
+            mat-flat-button 
+            class="submit-button" 
+            (click)="submit()"
+            [disabled]="loading">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"> 
+                <span>Enviar</span> <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+            </div>
+        </button>
 
         <span class="note" [routerLink]="['/register']">Não possui uma conta? Clique aqui para fazer seu cadastro</span>
     </div>

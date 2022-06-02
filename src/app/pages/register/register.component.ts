@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { userInterface } from 'src/app/models/userInfertace';
+import { AlertService } from 'src/app/services/alert.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -33,17 +36,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
-    //this.watchFormChanges();
-  }
-
-  watchFormChanges() {
-    this.form.valueChanges.subscribe(res => {
-
-    })
+    this.userService.verifyUser()
   }
 
   setSearchRole() {
@@ -64,9 +63,19 @@ export class RegisterComponent implements OnInit {
 
       this.loading = true;
       this.userService.createUser(user).subscribe(
-        res => console.log(res), 
-        err => console.error(err),
-        () => this.setLoadingFalse())
+        (res: { user: userInterface }) => {
+          this.userService.setLocalStorage(res.user);
+          this.router.navigateByUrl('');
+          this.setLoadingFalse();
+        }, 
+        err => {
+          console.error(err);
+
+          if (err.message)
+            this.alert.error(err.message)
+
+          this.setLoadingFalse();
+        })
     }
   }
 
